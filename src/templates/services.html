@@ -1,4 +1,5 @@
-<div class="row">
+ <div ng-controller="ServiceCtrl">
+ <div class="row">
   <div class="col-lg-6">
     <rd-widget>
       <rd-widget-header icon="fa-users" title="Services">
@@ -6,34 +7,26 @@
 	  </rd-widget-header>
       <rd-widget-body classes="medium no-padding">
         <div class="table-responsive">
-          <table class="table">
-            <thead>
-			  <tr><th>Name</th><th>Description</th><th>Source</th><th>Status</th></tr>
-			</thead>
-            <tbody>
-              <tr><td>hgtv</td><td>hgtv</td><td>hgtv</td><td>Running</td><td><span class="text-success"></span></td></tr>
-              <tr><td>cnbc</td><td>cnbc</td><td>cnbc</td><td>Stopped</td><td><span class="text-success"></span></td></tr>
-              <tr><td>military history</td><td>military history</td><td>military history</td><td>Running</td><td><span class="text-success"></span></td></tr>
-              <tr><td>nfl</td><td>nfl</td><td>nfl</td><td>Running</td><td><span class="text-success"></span></td></tr>
-              <tr><td>discovery</td><td>discovery</td><td>discovery</td><td>Running</td><td><span class="text-success"></span></td></tr>
-              <tr><td>bloomberg</td><td>bloomberg</td><td>bloomberg</td><td>Stopped</td><td><span class="text-success"></span></td></tr>
-            </tbody>
+          <table class ="table">
+          <thead>
+              <tr><th>Name</th><th>Description</th><th>Status</th></tr>
+          </thead>
+          <tr ng-repeat="service in services | orderBy : 'service.serviceName'">
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceName }}</td>
+              <td ng-if="$even">{{ service.serviceName }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceDescription }}</td>
+              <td ng-if="$even">{{ service.serviceDescription }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceStatus }}</td>
+              <td ng-if="$even">{{ service.serviceStatus }}</td>
+          </tr>
           </table>
         </div>
       </rd-widget-body>
       <rd-widget-footer>
         <button class="btn btn-sm btn-info">Add</button>
-        <ul class="pagination pagination-sm pull-right">
-          <li><a href="#">&laquo;</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&raquo;</a></li>
-        </ul>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
   </div>
+</div>
 </div>

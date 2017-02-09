@@ -1,4 +1,5 @@
-<div class="row">
+ <div ng-controller="ProfileCtrl">
+ <div class="row">
   <div class="col-lg-6">
     <rd-widget>
       <rd-widget-header icon="fa-users" title="Profiles">
@@ -6,34 +7,28 @@
 	  </rd-widget-header>
       <rd-widget-body classes="medium no-padding">
         <div class="table-responsive">
-          <table class="table">
-            <thead>
-			  <tr><th>Name</th><th>Description</th><th>Keep</th><th>Length</th></tr>
-			</thead>
-            <tbody>
-              <tr><td>hgtv</td><td>hgtv</td><td>6</td><td>2</td><td><span class="text-success"></span></td></tr>
-              <tr><td>cnbc</td><td>cnbc</td><td>6</td><td>2</td><td><span class="text-success"></span></td></tr>
-              <tr><td>military history</td><td>military history</td><td>6</td><td>2</td><td><span class="text-success"></span></td></tr>
-              <tr><td>nfl</td><td>nfl</td><td>6</td><td>2</td><td><span class="text-success"></span></td></tr>
-              <tr><td>discovery</td><td>discovery</td><td>6</td><td>2</td><td><span class="text-success"></span></td></tr>
-              <tr><td>bloomberg</td><td>bloomberg</td><td>6</td><td>2</td><td><span class="text-success"></span></td></tr>
-            </tbody>
+          <table class ="table">
+          <thead>
+              <tr><th>Name</th><th>Description</th><th>Segments To Keep</th><th>Segment Length</th></tr>
+          </thead>
+          <tr ng-repeat="profile in profiles | orderBy : 'profile.profileName'">
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.profileName }}</td>
+              <td ng-if="$even">{{ profile.profileName }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.profileDescription }}</td>
+              <td ng-if="$even">{{ profile.profileDescription }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.segmentsToKeep }}</td>
+              <td ng-if="$even">{{ profile.segmentsToKeep }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.segmentLength }}</td>
+              <td ng-if="$even">{{ profile.segmentLength }}</td>
+          </tr>
           </table>
         </div>
       </rd-widget-body>
       <rd-widget-footer>
         <button class="btn btn-sm btn-info">Add</button>
-        <ul class="pagination pagination-sm pull-right">
-          <li><a href="#">&laquo;</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&raquo;</a></li>
-        </ul>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
   </div>
+</div>
 </div>

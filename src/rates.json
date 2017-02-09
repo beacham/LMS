@@ -1,0 +1,9 @@
+{ "records": [
+      {"Name":"6_Mbit", "Bitrate":"6", "Width":"1920", "Height":"1080"},
+      {"Name":"5_Mbit", "Bitrate":"5", "Width":"1920", "Height":"1080"},
+      {"Name":"4_Mbit", "Bitrate":"4", "Width":"1920", "Height":"1080"},
+      {"Name":"3_Mbit", "Bitrate":"3", "Width":"1920", "Height":"1080"},
+      {"Name":"2_Mbit", "Bitrate":"2", "Width":"1920", "Height":"1080"},
+      {"Name":"1_Mbit", "Bitrate":"1", "Width":"1920", "Height":"1080"}
+  ]
+}

@@ -10,6 +10,9 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
         $urlRouterProvider.otherwise('/');
 
         // Application routes
+        //
+        // Note: Each state MUST be unique
+
         $stateProvider
             .state('index', {
                 url: '/',
@@ -21,19 +24,27 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('rates', {
                 url: '/rates',
-                templateUrl: 'templates/rates.html'
+                templateUrl: 'templates/rates.html', controller: 'RateCtrl'
+            })
+            .state('rates_add', {
+                url: '/ratesadd',
+                templateUrl: 'templates/rates_add.html', controller: 'RateCtrlAdd'
             })
             .state('profiles', {
                 url: '/profiles',
-                templateUrl: 'templates/profiles.html'
+                templateUrl: 'templates/profiles.html', controller: 'ProfileCtrl'
             })
             .state('sources', {
                 url: '/sources',
-                templateUrl: 'templates/sources.html'
+                templateUrl: 'templates/sources.html', controller: 'SourceCtrl'
             })
             .state('services', {
                 url: '/services',
-                templateUrl: 'templates/services.html'
+                templateUrl: 'templates/services.html', controller: 'ServiceCtrl'
+            })
+            .state('test', {
+                url: '/test',
+                templateUrl: 'templates/test.html', controller: 'TestRateCtrl'
             });
     }
 ]);
