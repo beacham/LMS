@@ -9,12 +9,15 @@ angular.module('RDash')
 
     console.log('ProfileCtrl - enter...');
 
-   //$scope.rates = {}
+   /*
+    * localhost =        url: 'http://192.168.0.3:8080/profiles.json',
+    * network   =        url: 'http://10.10.55.145:8085/lms/profile',
+    */
 
-       /*
-        * localhost =        url: 'http://192.168.0.3:8080/profiles.json',
-        * network   =        url: 'http://10.10.55.145:8085/lms/profile',
-        */
+   $scope.selectProfile = function(profile) {
+       $scope.selectedProfile = profile;
+       console.log('ProfileCtrl - selectProfile() - profile', profile)
+   }
 
     $http({
         method: 'GET',

@@ -18,10 +18,6 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/',
                 templateUrl: 'templates/dashboard.html'
             })
-            .state('tables', {
-                url: '/tables',
-                templateUrl: 'templates/tables.html'
-            })
             .state('rates', {
                 url: '/rates',
                 templateUrl: 'templates/rates.html', controller: 'RateCtrl'
@@ -41,6 +37,10 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('services', {
                 url: '/services',
                 templateUrl: 'templates/services.html', controller: 'ServiceCtrl'
+            })
+            .state('files', {
+                url: '/files',
+                templateUrl: 'templates/files.html', controller: 'FileCtrl'
             })
             .state('test', {
                 url: '/test',
