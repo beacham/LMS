@@ -4,10 +4,6 @@
  * Rate Controller
  */
 
-/*
- * how do i pass in the url?
- */
-
 angular.module('RDash')
     .controller('RateCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 
@@ -20,8 +16,6 @@ angular.module('RDash')
     $scope.goNext = function (hash) {
         $location.path(hash);
     }
-
-   //$scope.rates = {}
 
        /*
         * localhost = url: 'http://192.168.0.3:8080/rates.json',
