@@ -1,10 +1,16 @@
+# LMS-UI
 # RDash rdash-angular
 ## Responsive, bloat free, bootstrap powered admin style dashboard!
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/rdash/rdash-angular?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-rdash-angular is an AngularJS implementation of the RDash admin dashboard. The dashboard uses a small number of modules to get you started, along with some handy directives and controllers to speed up development using the dashboard.
+LMS-UI is based on AngularJS implementation of the RDash admin dashboard.
 
-Check out the [live example](http://rdash.github.io/)!
+LMS-UI development environment is Windows 7. In this environment nodejs is required to be installed for server side modules and bower for client side modules.
+The present UI architecture is bsaed on angularjs Single Page Applications (SPA). Each html snippet has associated exactly one angularjs controller to it. The "IDE"
+used is brackets. Gulp is used to automatically build project changes that occur via brackets. To use the console debugger in the browser remember to enable it using
+CTRL-SHIFT-J. Git is used to commit changes to the stash repository.
+
+Note: The UI has only been used in development with Google Chrome and Windows 7.
 
 ## Usage
 ### Requirements
