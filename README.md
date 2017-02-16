@@ -5,6 +5,18 @@
 
 LMS-UI is based on AngularJS implementation of the RDash admin dashboard.
 
+Release r1
+
+This release shows the basic premise of the LMS dashboard. It includes a navigation bar for services including profiles, rates, sources, and services. The UI is
+display only in this initial PoC and will list the contents of the database for profiles, rates, sources, and services. A sample web page is included for adding rates
+to show how individual entries would be added to the database.
+
+Note: The UI design is based on the premise of bulk loading ".csv" excel files from a Windows client computer (preferably inside a secure customer network) from
+some initial feedback. As such the UI will, in a future release, include a windows pop-up file explorer dialog box to allow the user to select ".csv" files to file
+transfer via $http over to a receiving rest api, where they will be subsequenlty loaded into the database by the backend servers.
+
+Development
+
 LMS-UI development environment is Windows 7. In this environment nodejs is required to be installed for server side modules and bower for client side modules.
 The present UI architecture is bsaed on angularjs Single Page Applications (SPA). Each html snippet has associated exactly one angularjs controller to it. The "IDE"
 used is brackets. Gulp is used to automatically build project changes that occur via brackets. To use the console debugger in the browser remember to enable it using

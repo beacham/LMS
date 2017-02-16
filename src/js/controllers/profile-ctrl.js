@@ -21,7 +21,7 @@ angular.module('RDash')
 
     $http({
         method: 'GET',
-        url: 'http://192.168.0.3:8080/profiles.json',
+        url: 'http://10.10.55.145:8085/lms/profile',
         headers: {
             'Accept': 'application/json'
         }

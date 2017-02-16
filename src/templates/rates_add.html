@@ -11,7 +11,8 @@
       placeholder="rate name"/>
     <br>
     <input class="form-control input-lg" type="text"
-      placeholder="rate bit rate"/>
+      placeholder="rate bit rate"
+      name="rateBitrate"/>
     <br>
     <input class="form-control input-lg" type="text"
       placeholder="rate width"/>
@@ -23,7 +24,7 @@
 
 <div class="row" style="margin-top: 12px;">
   <div class="col-sm-6">
-    <a href="/rates" class="btn btn-success btn">
+    <a href="/rates" class="btn btn-success btn" ng-click="SendData()">
         Add
     <a href="/rates" class="btn btn-danger btn">
       Cancel

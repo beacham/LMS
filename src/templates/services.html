@@ -9,15 +9,23 @@
         <div class="table-responsive">
           <table class ="table">
           <thead>
-              <tr><th>Name</th><th>Description</th><th>Status</th></tr>
+              <tr><th>Name</th><th>Id</th><th>Status</th><th>Source</th><th>Profile</th><th>Appliance</th><th>Auto</th></tr>
           </thead>
           <tr ng-repeat="service in services | orderBy : 'service.serviceName'">
               <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceName }}</td>
               <td ng-if="$even">{{ service.serviceName }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceDescription }}</td>
-              <td ng-if="$even">{{ service.serviceDescription }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceStatus }}</td>
-              <td ng-if="$even">{{ service.serviceStatus }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.id }}</td>
+              <td ng-if="$even">{{ service.id }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.status }}</td>
+              <td ng-if="$even">{{ service.status }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.sourceName }}</td>
+              <td ng-if="$even">{{ service.sourceName }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.profileName }}</td>
+              <td ng-if="$even">{{ service.profileName }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.applianceId }}</td>
+              <td ng-if="$even">{{ service.applianceId }}</td>
+              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.startServiceImediately }}</td>
+              <td ng-if="$even">{{ service.startServiceImediately }}</td>
           </tr>
           </table>
         </div>

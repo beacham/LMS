@@ -1,5 +1,4 @@
  <div ng-controller="RateCtrl">
-     <p></p><h2>{{text.message}}</h2>
  <div class="row">
   <div class="col-lg-6">
     <rd-widget>
@@ -13,15 +12,11 @@
               <tr><th>Name</th><th>Bit Rate</th><th>Width</th><th>Height</th></tr>
           </thead>
           <tr ng-repeat="rate in rates | orderBy : 'rate.name'">
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ rate.name }}</td>
-              <td ng-if="$even">{{ rate.name }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ rate.bitRate }}</td>
-              <td ng-if="$even">{{ rate.bitRate }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ rate.width }}</td>
-              <td ng-if="$even">{{ rate.width }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ rate.height }}</td>
-              <td ng-if="$even">{{ rate.height }}</td>
-          </tr>
+              <td> {{ rate.name }} </td>
+              <td> {{ rate.bitRate }} </td>
+              <td> {{ rate.width }}</td>
+              <td> {{ rate.height }}</td>
+           </tr>
           </table>
         </div>
       </rd-widget-body>

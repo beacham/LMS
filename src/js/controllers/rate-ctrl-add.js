@@ -9,20 +9,30 @@ angular.module('RDash')
 
     console.log('RateCtrlAdd - enter...');
 
-    $scope.text = {
-        message: 'List of Rates'
-    };
+    //$scope.SendData = function () {
+    /*    var ratedata = {
+                            rName:    $scope.rateName,
+                            rBitrate: $scope.rateBitrate,
+                            rWidth:   $scope.rateWidth,
+                            rHeight:  $scope.rateHeight
+        };*/
+
+        console.log('RateCtrlAdd - ratedata: ', $scope.ratedata);
 
        /*
         * localhost = url: 'http://192.168.0.3:8080/rates.json',
         * remote    = url: 'http://10.10.55.145:8085/lms/outputstream',
         */
 
+
+    var url = 'http://10.10.55.145:8085/lms/outputstream' + '/' + $scope.rateName
+
     $http({
         method: 'POST',
         url: 'http://10.10.55.145:8085/lms/outputstream',
+        data: $scope.ratedata,
         headers: {
-            'Accept': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
         }
     }).then(function successCallback(response) {
     // this callback will be called asynchronously

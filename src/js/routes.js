@@ -41,10 +41,6 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('files', {
                 url: '/files',
                 templateUrl: 'templates/files.html', controller: 'FileCtrl'
-            })
-            .state('test', {
-                url: '/test',
-                templateUrl: 'templates/test.html', controller: 'TestRateCtrl'
             });
     }
 ]);

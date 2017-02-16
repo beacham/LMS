@@ -9,10 +9,6 @@ angular.module('RDash')
 
     console.log('RateCtrl - enter...');
 
-    $scope.text = {
-        message: 'List of Rates'
-    };
-
     $scope.goNext = function (hash) {
         $location.path(hash);
     }
@@ -24,7 +20,7 @@ angular.module('RDash')
 
     $http({
         method: 'GET',
-        url: 'http://192.168.0.3:8080/rates.json',
+        url: 'http://10.10.55.145:8085/lms/outputstream',
         headers: {
             'Accept': 'application/json'
         }
@@ -34,9 +30,10 @@ angular.module('RDash')
         console.log('RateCtrl - $http success!');
         $scope.rates = response.data;
         console.log('RateCtrl - data: ', response.data);
-        console.log('RateCtrl - status: ', response.status);
         console.log('RateCtrl - headers: ', response.headers);
         console.log('RateCtrl - config: ', response.config);
+        console.log('RateCtrl - status: ', response.status);
+        console.log('RateCtrl - status: ', response.statusText);
     }, function errorCallback(response) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
