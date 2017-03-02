@@ -1,0 +1,85 @@
+<div ng-controller="ProfileCtrlAdd">
+    <form name="myForm" ng-submit="processForm()">
+  <rd-widget>
+    <rd-widget-header icon="fa-users" title="Profiles">
+	</rd-widget-header>
+  </rd-widget>
+  <p></p>
+
+
+<div class="row">
+  <div class="col-sm-6">
+
+    <input class="form-control input-lg" type="text"
+      placeholder="profile name"
+      name="profiles.profileName"
+      ng-model="profiles.profileName" required/>
+    <br>
+    <input class="form-control input-lg" type="text"
+      placeholder="profile description"
+      name="profiles.profileDescription"
+      ng-model="profiles.profileDescription" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="segments to keep"
+      name="profiles.segmentsToKeep"
+      ng-model="profiles.segmentsToKeep" required/>
+    <br>
+      <input class="form-control input-lg" type="number"
+      placeholder="profile segment length"
+      name="profiles.segmentLength"
+      ng-model="profiles.segmentLength" required/>
+
+  </div>
+</div>
+
+<div class="row" style="margin-top: 12px;">
+  <div class="col-sm-6">
+    <button class="btn btn-success btn" type="submit" ng-model="addButtonVal" ng-click="addButtonVal=true">
+        Add
+    </button>
+  </div>
+</div>
+
+<!-- Rate Table -->
+<!-- Rate Table -->
+<!-- Rate Table -->
+
+  <div class="col-lg-6">
+    <rd-widget>
+      <rd-widget-header icon="fa-users" title="Rates">
+	  </rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive">
+          <table class ="table">
+          <thead>
+              <tr><th>Select</th><th>Name</th><th>Bitrate</th><th>Width</th><th>Height</th></tr>
+          </thead>
+          <tr ng-repeat="rate in rates"
+              selection-model
+              selection-model-type="'checkbox'"
+              selection-model-mode="'multiple-additive'"
+              selection-model-selected-items="selectedItems">
+              <td><input type="checkbox"></td>
+              <td> {{ rate.name }} </td>
+              <td> {{ rate.bitRate }} </td>
+              <td> {{ rate.width }}</td>
+              <td> {{ rate.height }}</td>
+            </tr>
+          </table>
+        </div>
+      </rd-widget-body>
+      <rd-widget-footer>
+      <button class="btn btn-success btn" type="submit">
+        Select
+    </button>
+          <br>
+            <div class="clearfix"></div>
+        <p></p>
+      </rd-widget-footer>
+    </rd-widget>
+  </div>
+
+
+    </form>
+</div>

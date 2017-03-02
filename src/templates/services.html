@@ -3,35 +3,32 @@
   <div class="col-lg-6">
     <rd-widget>
       <rd-widget-header icon="fa-users" title="Services">
-          <input type="text" placeholder="Search" class="form-control input-sm" />
 	  </rd-widget-header>
       <rd-widget-body classes="medium no-padding">
         <div class="table-responsive">
           <table class ="table">
           <thead>
-              <tr><th>Name</th><th>Id</th><th>Status</th><th>Source</th><th>Profile</th><th>Appliance</th><th>Auto</th></tr>
+              <tr><th>Name</th><th>Id</th><th>Source</th><th>Profile</th><th>Appliance</th><th>Vue</th></tr>
           </thead>
           <tr ng-repeat="service in services | orderBy : 'service.serviceName'">
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.serviceName }}</td>
-              <td ng-if="$even">{{ service.serviceName }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.id }}</td>
-              <td ng-if="$even">{{ service.id }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.status }}</td>
-              <td ng-if="$even">{{ service.status }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.sourceName }}</td>
-              <td ng-if="$even">{{ service.sourceName }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.profileName }}</td>
-              <td ng-if="$even">{{ service.profileName }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.applianceId }}</td>
-              <td ng-if="$even">{{ service.applianceId }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ service.startServiceImediately }}</td>
-              <td ng-if="$even">{{ service.startServiceImediately }}</td>
+              <td> {{ service.serviceName }} </td>
+              <td> {{ service.id }}</td>
+              <td> {{ service.sourceName }}</td>
+              <td> {{ service.profileName }}</td>
+              <td> {{ service.applianceId }}</td>
+              <!--<td> {{ service.startServiceImediately }}</td>-->
+              <td> <input type="button" value="Edit" class="btn btn-primary" ng-click='goNext("/servicesmod")'/></td>
+              <td> <input type="button" value="Start" class="btn btn-success" ng-click="startService(service.serviceName)"/></td>
+              <td> <input type="button" value="Stop" class="btn btn-danger" ng-click="stopService(service.serviceName)"/></td>
+              <td> <input type="button" value="Remove" class="btn btn-danger" ng-click="removeRow(service.serviceName)"/></td>
           </tr>
           </table>
         </div>
       </rd-widget-body>
       <rd-widget-footer>
-        <button class="btn btn-sm btn-info">Add</button>
+        <button class="btn btn-success">
+            <div ng-click='goNext("/servicesadd")'>Add</div>
+        </button>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>

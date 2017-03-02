@@ -5,7 +5,7 @@
  */
 
 angular.module('RDash')
-    .controller('RateCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
+    .controller('RateCtrl', ['$rootScope', '$scope', '$location', '$http', function($rootScope, $scope, $location, $http) {
 
     console.log('RateCtrl - enter...');
 
@@ -13,21 +13,48 @@ angular.module('RDash')
         $location.path(hash);
     }
 
-       /*
-        * localhost = url: 'http://192.168.0.3:8080/rates.json',
-        * remote    = url: 'http://10.10.55.145:8085/lms/outputstream',
-        */
+    $scope.refresh = function(){
+        $http.get('http://' + $rootScope.restIpAddr + ':' + $rootScope.restPort + '/lms/outputstream')
+          .success(function(data){
+               $scope.rates = data;
+          });
+    }
+
+    $scope.removeRow = function(name) {
+        console.log('RateCtrl - removeRow - enter...');
+		var index = -1;
+		var rateList = eval( $scope.rates );
+
+		for( var i = 0; i < rateList.length; i++ ) {
+			if( rateList[i].name === name ) {
+				index = i;
+				break;
+			}
+		}
+		if( index === -1 ) {
+			alert( "RateCtrl - removeRow: index error" );
+		}
+
+        $http({
+                method: 'DELETE',
+                url: 'http://' + $rootScope.restIpAddr + ':' + $rootScope.restPort + '/lms/outputstream' + '/' + rateList[i].name,
+        }).then(function successCallback(response) {
+                console.log('RateCtrl - removeRow - $http DELETE success!');
+                $scope.refresh();
+        }, function errorCallback(response) {
+            console.log('RateCtrl - removeRow - $http DELETE failure!');
+        });
+        console.log('RateCtrl - removeRow - ...exit');
+	};
 
     $http({
         method: 'GET',
-        url: 'http://10.10.55.145:8085/lms/outputstream',
+        url: 'http://' + $rootScope.restIpAddr + ':' + $rootScope.restPort + '/lms/outputstream',
         headers: {
             'Accept': 'application/json'
         }
     }).then(function successCallback(response) {
-    // this callback will be called asynchronously
-    // when the response is available
-        console.log('RateCtrl - $http success!');
+        console.log('RateCtrl - $http GET success!');
         $scope.rates = response.data;
         console.log('RateCtrl - data: ', response.data);
         console.log('RateCtrl - headers: ', response.headers);
@@ -35,9 +62,7 @@ angular.module('RDash')
         console.log('RateCtrl - status: ', response.status);
         console.log('RateCtrl - status: ', response.statusText);
     }, function errorCallback(response) {
-    // called asynchronously if an error occurs
-    // or server returns response with an error status.
-            console.log('RateCtrl - $http failure!');
+            console.log('RateCtrl - $http GET failure!');
     });
 
     console.log('RateCtrl - ...exit');

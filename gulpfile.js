@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    gulpUtil = require('gulp-util'),
     usemin = require('gulp-usemin'),
     wrap = require('gulp-wrap'),
     connect = require('gulp-connect'),
@@ -16,7 +17,7 @@ var paths = {
     images: 'src/img/**/*.*',
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
-    bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
+    bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}'
 };
 
 /**
@@ -26,7 +27,7 @@ gulp.task('usemin', function() {
     return gulp.src(paths.index)
         .pipe(usemin({
             js: [minifyJs(), 'concat'],
-            css: [minifyCss({keepSpecialComments: 0}), 'concat'],
+            css: [minifyCss({keepSpecialComments: 0}), 'concat']
         }))
         .pipe(gulp.dest('dist/'));
 });
@@ -56,7 +57,7 @@ gulp.task('custom-images', function() {
 
 gulp.task('custom-js', function() {
     return gulp.src(paths.scripts)
-        .pipe(minifyJs())
+        .pipe(minifyJs().on('error', gulpUtil.log)) // notice the uglify error event here
         .pipe(concat('dashboard.min.js'))
         .pipe(gulp.dest('dist/js'));
 });

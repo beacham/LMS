@@ -1,29 +1,28 @@
- <div ng-controller="RateCtrl">
+ <div ng-controller="ApplianceCtrl">
  <div class="row">
   <div class="col-lg-6">
     <rd-widget>
-      <rd-widget-header icon="fa-users" title="Rates">
+      <rd-widget-header icon="fa-users" title="Appliances">
+          <input type="text" placeholder="Search" class="form-control input-sm" />
 	  </rd-widget-header>
       <rd-widget-body classes="medium no-padding">
         <div class="table-responsive">
           <table class ="table">
           <thead>
-              <tr><th>Name</th><th>Bit Rate</th><th>Width</th><th>Height</th></tr>
+              <tr><th>Name</th><th>IP Address</th><th>Description</th><th>Type</th></tr>
           </thead>
           <tr ng-repeat="rate in rates | orderBy : 'rate.name'">
               <td> {{ rate.name }} </td>
               <td> {{ rate.bitRate }} </td>
               <td> {{ rate.width }}</td>
               <td> {{ rate.height }}</td>
-              <td> <input type="button" value="Edit" class="btn btn-primary" ng-click='goNext("/ratesmod")'/></td>
-              <td> <input type="button" value="Remove" class="btn btn-danger" ng-click="removeRow(rate.name)"/></td>
-            </tr>
+           </tr>
           </table>
         </div>
       </rd-widget-body>
       <rd-widget-footer>
-        <button class="btn btn-success">
-            <div ng-click='goNext("/ratesadd")'>Add</div>
+        <button class="btn btn-sm btn-info">
+            <div ng-click='goNext("/appliancesadd")'>Add</div>
         </button>
         <div class="clearfix"></div>
       </rd-widget-footer>

@@ -1,0 +1,75 @@
+<div ng-controller="ServiceCtrlAdd">
+  <rd-widget>
+    <rd-widget-header icon="fa-users" title="Services">
+	</rd-widget-header>
+  </rd-widget>
+  <p></p>
+
+<form name="myForm" ng-submit="processForm()">
+<div class="row">
+  <div class="col-sm-6">
+
+    <input class="form-control input-lg" type="text"
+      placeholder="service name"
+      name="service.serviceName"
+      ng-model="service.serviceName" required/>
+    <br>
+    <input class="form-control input-lg" type="text"
+      placeholder="service id"
+      name="service.id"
+      ng-model="service.id" required/>
+    <br>
+      <!--<input class="form-control input-lg" type="text"
+      placeholder="service source name"
+      name="service.sourceName"
+      ng-model="service.sourceName" required/>-->
+      <!--<div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownSource" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{ selectedItem }}
+            <span class="caret"> <span>
+        <button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownSource">
+            <li ng-repeat="a in sources"><a ng-click="dropboxitemselected(a)">{{a}}a>
+            </li>
+        <ul>
+        <div>-->
+        <select
+            ng-change="getSourceList(selectedItem)"
+            ng-model="selectedItem"
+            ng-options="i for i in items"
+            class="form-control input-lg">
+            <option value="">-- Select Source --</option>
+       </select>
+    <br>
+        <select
+            ng-change="getProfileList(selectedItem)"
+            ng-model="selectedItem"
+            ng-options="i for i in items"
+            class="form-control input-lg">
+            <option value="">-- Select Profile --</option>
+       </select>
+    <br>
+      <input class="form-control input-lg" type="text"
+      placeholder="appliance id"
+      name="service.applianceId"
+      ng-model="service.applianceId" required/>
+    <br>
+      <input class="form-control input-lg" type="text"
+      placeholder="service start immediately"
+      name="service.startServiceImediately"
+      ng-model="service.startServiceImediately" required/>
+
+  </div>
+</div>
+
+<div class="row" style="margin-top: 12px;">
+  <div class="col-sm-6">
+    <button class="btn btn-success btn" type="submit" ng-model="addButtonVal" ng-click="addButtonVal=true">
+        Add
+    </button>
+  </div>
+</div>
+
+</form>
+
+</div>

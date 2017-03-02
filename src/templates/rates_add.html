@@ -5,29 +5,41 @@
   </rd-widget>
   <p></p>
 
+<form name="myForm" ng-submit="processForm()">
 <div class="row">
   <div class="col-sm-6">
+
     <input class="form-control input-lg" type="text"
-      placeholder="rate name"/>
+      placeholder="rate name"
+      name="rates.name"
+      ng-model="rates.name" required/>
     <br>
-    <input class="form-control input-lg" type="text"
+    <input class="form-control input-lg" type="number"
+      placeholder="rate width"
+      name="rates.width"
+      ng-model="rates.width" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="rate height"
+      name="rates.height"
+      ng-model="rates.height" required/>
+    <br>
+      <input class="form-control input-lg" type="number"
       placeholder="rate bit rate"
-      name="rateBitrate"/>
-    <br>
-    <input class="form-control input-lg" type="text"
-      placeholder="rate width"/>
-    <br>
-    <input class="form-control input-lg" type="text"
-      placeholder="rate height"/>
+      name="rates.bitRate"
+      ng-model="rates.bitRate" required/>
+
   </div>
 </div>
 
 <div class="row" style="margin-top: 12px;">
   <div class="col-sm-6">
-    <a href="/rates" class="btn btn-success btn" ng-click="SendData()">
+    <button class="btn btn-success btn" type="submit" ng-model="addButtonVal" ng-click="addButtonVal=true">
         Add
-    <a href="/rates" class="btn btn-danger btn">
-      Cancel
-    </a>
+    </button>
   </div>
+</div>
+
+</form>
+
 </div>

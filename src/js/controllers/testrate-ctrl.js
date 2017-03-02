@@ -1,15 +1,39 @@
 /*
- * Rate Controller
+ * Test Controller
  */
 
 angular.module('RDash')
-    .controller('TestRateCtrl', function() {
-    this.bag = [
-      {label: '6_Mbit', rate: '6', width: '1920', height: '1080', selected: false},
-      {label: '5_Mbit', rate: '5', width: '1920', height: '1080', selected: false},
-      {label: '4_Mbit', rate: '4', width: '1920', height: '1080', selected: false},
-      {label: '3_Mbit', rate: '3', width: '1920', height: '1080', selected: false},
-      {label: '2_Mbit', rate: '2', width: '1920', height: '1080', selected: false},
-      {label: '1_Mbit', rate: '1', width: '1920', height: '1080', selected: false}
-    ];
-  });
+    .controller('TestRateCtrl', ['$rootScope', '$scope', '$http', 'rateService', function($rootScope, $scope, $http, rateService) {
+
+  console.log('TestRateCtrl - enter ...');
+
+        /*TestRateCtrl.resolve = {
+            rates: function (rateService) {
+            return rateService.getRates();
+            }
+        }*/
+
+        rateService.getRates().then(function (rates) {
+            $scope.bag = rates;
+            console.log('TestRateCtrl - getRates: ', $scope.bag);
+        }, function (error) {
+            $scope.status = 'TestRateCtrl - getRates - Unable to load rate data: ' + error.message;
+        });
+
+        //alert('Bello');
+
+      $scope.getAllSelectedRows = function() {
+         console.log('this.selectedItems: ', this.selectedItems);
+       }
+
+    this.changed = function(item) {
+    // Do something with item, its selected status has changed!
+        console.log('TestRateCtrl - item changed: ', item)
+    }
+
+    $scope.selectedItems = []; // read only array that is populated by 'selectionModel' library with the list of selected items
+
+    console.log('TestRateCtrl - selectedItem: ', this.selectedItems)
+    console.log('TestRateCtrl - ...exit');
+
+}]);

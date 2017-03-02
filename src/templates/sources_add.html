@@ -1,0 +1,40 @@
+<div ng-controller="SourceCtrlAdd">
+  <rd-widget>
+    <rd-widget-header icon="fa-users" title="Sources">
+	</rd-widget-header>
+  </rd-widget>
+  <p></p>
+
+<form name="myForm" ng-submit="processForm()">
+<div class="row">
+  <div class="col-sm-6">
+
+    <input class="form-control input-lg" type="text"
+      placeholder="source name"
+      name="sources.sourceName"
+      ng-model="sources.sourceName" required/>
+    <br>
+    <input class="form-control input-lg" type="text"
+      placeholder="source uri"
+      name="sources.sourceUri"
+      ng-model="sources.sourceUri" required/>
+    <br>
+    <input class="form-control input-lg" type="text"
+      placeholder="source description"
+      name="sources.sourceDescription"
+      ng-model="sources.sourceDescription" required/>
+
+  </div>
+</div>
+
+<div class="row" style="margin-top: 12px;">
+  <div class="col-sm-6">
+    <button class="btn btn-success btn" type="submit" ng-model="addButtonVal" ng-click="addButtonVal=true">
+        Add
+    </button>
+  </div>
+</div>
+
+</form>
+
+</div>

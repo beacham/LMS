@@ -1,41 +1,41 @@
- <div ng-controller="ProfileCtrl">
- <div class="row">
+<div ng-controller="ProfileCtrl">
 
-    <!-- Profile Table -->
-    <!-- Profile Table -->
-    <!-- Profile Table -->
+<!-- Profile Table -->
+<!-- Profile Table -->
+<!-- Profile Table -->
 
+<div class="row">
   <div class="col-lg-6">
     <rd-widget>
       <rd-widget-header icon="fa-users" title="Profiles">
-          <input type="text" placeholder="Search" class="form-control input-sm" />
 	  </rd-widget-header>
       <rd-widget-body classes="medium no-padding">
         <div class="table-responsive">
           <table class ="table">
           <thead>
-              <tr><th>Name</th><th>Description</th><th>Segments To Keep</th><th>Segment Length</th></tr>
+              <tr><th>Name</th><th>Bit Rate</th><th>Width</th><th>Height</th></tr>
           </thead>
           <tr ng-repeat="profile in profiles | orderBy : 'profile.profileName'"
               ng-click="selectProfile(profile)">
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.profileName }}</td>
-              <td ng-if="$even">{{ profile.profileName }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.profileDescription }}</td>
-              <td ng-if="$even">{{ profile.profileDescription }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.segmentsToKeep }}</td>
-              <td ng-if="$even">{{ profile.segmentsToKeep }}</td>
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ profile.segmentLength }}</td>
-              <td ng-if="$even">{{ profile.segmentLength }}</td>
-          </tr>
+              <td> {{ profile.profileName }} </td>
+              <td> {{ profile.profileDescription }} </td>
+              <td> {{ profile.segmentsToKeep }}</td>
+              <td> {{ profile.segmentLength }}</td>
+              <td> <input type="button" value="Edit" class="btn btn-primary" ng-click='goNext("/profilesmod")'/></td>
+              <td> <input type="button" value="Remove" class="btn btn-danger" ng-click="removeRow(profile.profileName)"/></td>
+           </tr>
           </table>
         </div>
       </rd-widget-body>
       <rd-widget-footer>
-        <button class="btn btn-sm btn-info">Add</button>
+        <button class="btn btn-success">
+            <div ng-click='goNext("/profilesadd")'>Add</div>
+        </button>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
   </div>
+<!--</div>-->
 
     <!-- Rate Table -->
     <!-- Rate Table -->
@@ -52,10 +52,7 @@
               <tr><th>Name</th><!-- <th>Bitrate</th><th>Width</th><th>Height</th> --></tr>
           </thead>
           <tr ng-repeat="rate in selectedProfile.lmsOutputStreams track by $index">
-              <!-- <td ng-if="$odd" style="background-color:#f1f1f1">{{ $index }}</td> -->
-              <!-- <td ng-if="$even">{{ $index }}</td> -->
-              <td ng-if="$odd" style="background-color:#f1f1f1">{{ rate }}</td>
-              <td ng-if="$even">{{ rate }}</td>
+              <td>{{ rate }}</td>
           </tr>
           </table>
         </div>

@@ -1,4 +1,4 @@
-<ul ng-controller="TestRateCtrl as fancy">
+<ul ng-controller="TestRateCtrl">
 
 <p><input type="text" ng-model="fancyfilter" /></p>
 
@@ -14,17 +14,18 @@
         <th>Height</th>
       </tr>
     </thead>
-    <tr ng-repeat="item in fancy.bag | filter:fancyfilter"
+    <tr ng-repeat="item in bag | filter:fancyfilter"
         selection-model
         selection-model-type="'checkbox'"
         selection-model-mode="'multiple-additive'"
-        selection-model-selected-class="'foobar'">
+        selection-model-selected-items="selectedItems">
       <td><input type="checkbox"></td>
       <td>{{$index + 1}}</td>
-      <td>{{item.label}}</td>
-      <td>{{item.rate}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.bitRate}}</td>
       <td>{{item.width}}</td>
       <td>{{item.height}}</td>
     </tr>
 </table>
+    <button ng-click="getAllSelectedRows()">getAllSelectedRows</button>
 </ul>
