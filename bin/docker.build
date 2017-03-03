@@ -1,0 +1,7 @@
+#! /bin/bash
+
+bin/tar.app
+
+sudo docker build -t dockerrepo:5000/vmgr/web_ui ./docker.ctx
+
+sudo docker push dockerrepo:5000/vmgr/web_ui

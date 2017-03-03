@@ -1,0 +1,55 @@
+<div ng-controller="ApplianceCtrlAdd">
+  <rd-widget>
+    <rd-widget-header icon="fa-users" title="Appliances">
+	</rd-widget-header>
+  </rd-widget>
+  <p></p>
+
+<form name="myForm" ng-submit="processForm()">
+<div class="row">
+  <div class="col-sm-6">
+
+    <input class="form-control input-lg" type="text"
+      placeholder="appliance name"
+      name="appliances.name"
+      ng-model="appliances.name" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="appliance model"
+      name="appliances.model"
+      ng-model="appliances.model" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="appliance type"
+      name="appliances.type"
+      ng-model="appliances.type" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="appliance ip address"
+      name="appliances.ipAddress"
+      ng-model="appliances.ipAddress" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="appliance control url"
+      name="appliances.controlUrl"
+      ng-model="appliances.controlUrl" required/>
+    <br>
+    <input class="form-control input-lg" type="number"
+      placeholder="appliance description"
+      name="appliances.description"
+      ng-model="appliances.description" required/>
+
+  </div>
+</div>
+
+<div class="row" style="margin-top: 12px;">
+  <div class="col-sm-6">
+    <button class="btn btn-success btn" type="submit" ng-model="addButtonVal" ng-click="addButtonVal=true">
+        Add
+    </button>
+  </div>
+</div>
+
+</form>
+
+</div>

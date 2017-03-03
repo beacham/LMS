@@ -9,14 +9,17 @@
         <div class="table-responsive">
           <table class ="table">
           <thead>
-              <tr><th>Name</th><th>IP Address</th><th>Description</th><th>Type</th></tr>
+              <tr><th>Name</th><th>Model</th><th>Type</th><th>IP Address</th><th>Control URL</th><th>Description</th><th>Status</th></tr>
           </thead>
-          <tr ng-repeat="rate in rates | orderBy : 'rate.name'">
-              <td> {{ rate.name }} </td>
-              <td> {{ rate.bitRate }} </td>
-              <td> {{ rate.width }}</td>
-              <td> {{ rate.height }}</td>
-           </tr>
+          <tr ng-repeat="rate in appliances | orderBy : 'appliance.name'">
+              <td> {{ appliance.name }} </td>
+              <td> {{ appliance.model }} </td>
+              <td> {{ appliance.type }}</td>
+              <td> {{ appliance.ipAddress }}</td>
+              <td> {{ appliance.controlUrl }}</td>
+              <td> {{ appliance.description }}</td>
+              <td> {{ appliance.status }}</td>
+          </tr>
           </table>
         </div>
       </rd-widget-body>

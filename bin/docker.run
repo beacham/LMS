@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# Set the ArangoDB URL and REST_API_* environment variables. 
+
+LOCALHOST="agm-dev-2"
+##LOCALHOST="cdkdemo"
+WEB_UI_HOST="0.0.0.0"
+WEB_UI_PORT="8000"
+
+docker run -d \
+	--name=web_ui \
+	--restart=unless-stopped \
+	-e LOCALHOST=${LOCALHOST} \
+	-e WEB_UI_HOST=${REST_API_HOST} \
+	-e WEB_UI_PORT=${REST_API_PORT} \
+	-p ${WEB_UI_PORT}:${WEB_UI_PORT} \
+	dockerrepo:5000/vmgr/web_ui
+

@@ -5,18 +5,13 @@
  */
 
 angular.module('RDash')
-    .controller('ApplianceCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
+    .controller('ApplianceCtrl', ['$scope', '$location', '$http', 'serviceAppliance', function($scope, $location, $http, serviceAppliance) {
 
     console.log('ApplianceCtrl - enter...');
 
     $scope.goNext = function (hash) {
         $location.path(hash);
     }
-
-       /*
-        * localhost = url: 'http://192.168.0.3:8080/rates.json',
-        * remote    = url: 'http://10.10.55.145:8085/lms/outputstream',
-        */
 
     $http({
         method: 'GET',
